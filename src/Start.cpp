@@ -1,12 +1,5 @@
 #include "../Header/header_for_all_files.hpp"
 
-/*
-Problems to solve:
-2. SAFE!!!! Where the function does not have to be non-const it shouldn't be!!!
-
-
-*/
-
 void redict(std::shared_ptr<Object> &polymorphysm_general_object, Keep & keep, std::vector<Keep> & vector_with_all_object, const std::string day)
 {
     polymorphysm_general_object->make_basic_activity(keep, vector_with_all_object, day);
