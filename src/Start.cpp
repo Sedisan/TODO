@@ -1,5 +1,6 @@
 #include "../Header/header_for_all_files.hpp"
 
+
 void redict(std::shared_ptr<Object> &polymorphysm_general_object, Keep & keep, std::vector<Keep> & vector_with_all_object, const std::string day)
 {
     polymorphysm_general_object->make_basic_activity(keep, vector_with_all_object, day);
@@ -30,7 +31,8 @@ void StartProgram::start(std::vector<Keep> & vector_with_all_object)
                     << "4. Browse another day activity\n"
                     << "5. Remove planned activity\n"
                     << "6. Open program location (Only for Windows)\n"
-                    << "7. Exit program\n";
+                    << "7. Search last occurance of day in database\n"
+                    << "8. Exit program\n";
 
         std::cout << "Your choise: ";
         unsigned int choise = StaticClassToTest::load_variable<unsigned int>();
@@ -105,9 +107,15 @@ void StartProgram::start(std::vector<Keep> & vector_with_all_object)
             break;
         }
         case 7:
+        {
+            polymorphysm_general_object = std::make_shared<Browse>();
+            redict(polymorphysm_general_object,keep, vector_with_all_object, StaticClassToTest::name_of_base);
+            break;
+        }
+        case 8:
             return;
         }
-        if (choise != 3 && choise != 4)
+        if (choise != 3 && choise != 4 && choise != 7)
             Helper::refresh_screen();
         if(choise < 6 && choise != 3 && choise != 4)
             std::cout << "Operation was successfull\n";
